@@ -14,6 +14,7 @@ Include the script:
 ```
 
 Setup the field to mask and the field to toggle the mask:
+
 ```
 <input type="text" name="credit_card" value="" id="credit_card" class="mask"/>
 <input type="checkbox" name="toggle" value="1" id="toggle" class="toggle" />
