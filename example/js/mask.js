@@ -13,15 +13,15 @@
     var $controls = $(settings.toggle);
 
     //helper function
-    function createMask(unmasked) {
-      var new_id = unmasked.attr('id') + '_masked';
+    function createUnmask(masked) {
+      var new_id = masked.attr('id') + '_unmasked';
       var new_input = document.createElement("input");
       new_input.setAttribute("id", new_id);
-      new_input.setAttribute("type","password");
+      new_input.setAttribute("type","text");
       new_input.setAttribute("style","display:none;")
-      new_input.value = unmasked.val();
-      unmasked.after(new_input);
-      return $('#'+new_id);
+      new_input.value = masked.val();
+      masked.after(new_input);
+      return $(new_input);
     }
 
     //bind the controls
@@ -38,8 +38,8 @@
     });
 
     return this.each(function() {
-      var unmasked = $('#'+this.id);
-      var masked = createMask(unmasked);
+      var masked = $(this);
+      var unmasked = createUnmask(masked);
 
       this.reveal = function() {
         unmasked.show();
